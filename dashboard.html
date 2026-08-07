@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+
+    <main class="dashboard-container">
+        <!-- Welcome Section -->
+        <section class="dashboard-header">
+            <h1>Welcome back, Alex</h1>
+            <p>Here's what's happening across your matters with Stackly.</p>
+        </section>
+
+        <!-- Summary Cards -->
+        <section class="summary-cards">
+            <div class="summary-card">
+                <div class="card-icon-wrapper blue-bg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="card-content">
+                    <h2>3</h2>
+                    <p>Active Cases</p>
+                </div>
+                <span class="trend-badge positive">+1</span>
+            </div>
+            
+            <div class="summary-card">
+                <div class="card-icon-wrapper yellow-bg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <div class="card-content">
+                    <h2>5</h2>
+                    <p>Documents Pending Review</p>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="card-icon-wrapper green-bg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+                <div class="card-content">
+                    <h2>Jul 24</h2>
+                    <p>Next Consultation</p>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="card-icon-wrapper orange-bg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                </div>
+                <div class="card-content">
+                    <h2>$12,400</h2>
+                    <p>Outstanding Balance</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Dashboard Layout -->
+        <div class="dashboard-grid">
+            <!-- Left Column -->
+            <div class="dashboard-left">
+                <!-- Active Cases -->
+                <div class="dashboard-section">
+                    <div class="section-title-row">
+                        <h3>Active Cases</h3>
+                        <a href="#" class="view-all">View all &rarr;</a>
+                    </div>
+                    
+                    <div class="list-card">
+                        <div class="list-item flex-column">
+                            <div class="item-header">
+                                <div>
+                                    <h4>Cross-Border Merger — Northbridge / Alta Health</h4>
+                                    <p class="subtext">Corporate Law · Filed Jun 2, 2026</p>
+                                </div>
+                                <span class="status-badge bg-blue-light text-blue">In Progress</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 72%; background-color: #2563EB;"></div>
+                            </div>
+                            <div class="item-footer">
+                                <div class="assignee">
+                                    <div class="avatar-small bg-blue-dark">JV</div>
+                                    <span>James</span>
+                                </div>
+                                <span class="progress-text text-blue">72%</span>
+                            </div>
+                        </div>
+
+                        <div class="list-item flex-column">
+                            <div class="item-header">
+                                <div>
+                                    <h4>Regulatory Compliance Review — 2026</h4>
+                                    <p class="subtext">Compliance · Filed May 14, 2026</p>
+                                </div>
+                                <span class="status-badge bg-yellow-light text-yellow">In Review</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 45%; background-color: #2563EB;"></div>
+                            </div>
+                            <div class="item-footer">
+                                <div class="assignee">
+                                    <div class="avatar-small bg-blue-dark">PS</div>
+                                    <span>Priya Shah</span>
+                                </div>
+                                <span class="progress-text text-blue">45%</span>
+                            </div>
+                        </div>
+
+                        <div class="list-item flex-column">
+                            <div class="item-header">
+                                <div>
+                                    <h4>Vendor Contract Renegotiation</h4>
+                                    <p class="subtext">Corporate Law · Filed Mar 30, 2026</p>
+                                </div>
+                                <span class="status-badge bg-green-light text-green">Closed</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 100%; background-color: #059669;"></div>
+                            </div>
+                            <div class="item-footer">
+                                <div class="assignee">
+                                    <div class="avatar-small bg-blue-dark">SM</div>
+                                    <span>Sarah</span>
+                                </div>
+                                <span class="progress-text text-blue">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Documents -->
+                <div class="dashboard-section mt-8">
+                    <div class="section-title-row">
+                        <h3>Recent Documents</h3>
+                        <a href="#" class="view-all">View all &rarr;</a>
+                    </div>
+                    
+                    <div class="list-card">
+                        <div class="list-item document-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                </div>
+                                <div>
+                                    <h4>Merger Agreement — Draft v4.pdf</h4>
+                                    <p class="subtext">Jul 18, 2026 · 2.4 MB</p>
+                                </div>
+                            </div>
+                            <button class="download-btn" aria-label="Download">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                        </div>
+
+                        <div class="list-item document-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                </div>
+                                <div>
+                                    <h4>Compliance Audit Summary.pdf</h4>
+                                    <p class="subtext">Jul 15, 2026 · 1.1 MB</p>
+                                </div>
+                            </div>
+                            <button class="download-btn" aria-label="Download">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                        </div>
+
+                        <div class="list-item document-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                </div>
+                                <div>
+                                    <h4>Vendor Contract — Signed.pdf</h4>
+                                    <p class="subtext">Jun 30, 2026 · 890 KB</p>
+                                </div>
+                            </div>
+                            <button class="download-btn" aria-label="Download">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="dashboard-right">
+                <!-- Messages -->
+                <div class="dashboard-section">
+                    <div class="section-title-row">
+                        <h3>Messages</h3>
+                        <a href="#" class="view-all">View all &rarr;</a>
+                    </div>
+                    
+                    <div class="list-card">
+                        <div class="list-item message-item unread">
+                            <div class="avatar-small bg-blue-dark">JV</div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <h4>James</h4>
+                                    <span class="time">2h ago</span>
+                                </div>
+                                <p class="message-preview">The revised merger draft is ready for your review...</p>
+                            </div>
+                            <span class="unread-dot"></span>
+                        </div>
+
+                        <div class="list-item message-item unread">
+                            <div class="avatar-small bg-blue-dark">PS</div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <h4>Priya Shah</h4>
+                                    <span class="time">1d ago</span>
+                                </div>
+                                <p class="message-preview">Compliance audit findings look clean, sending summary...</p>
+                            </div>
+                            <span class="unread-dot"></span>
+                        </div>
+
+                        <div class="list-item message-item">
+                            <div class="avatar-small bg-blue-dark">SM</div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <h4>Sarah</h4>
+                                    <span class="time">4d ago</span>
+                                </div>
+                                <p class="message-preview">Vendor contract has been fully executed. 🎉</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Billing -->
+                <div class="dashboard-section mt-8">
+                    <div class="section-title-row">
+                        <h3>Billing</h3>
+                        <a href="#" class="view-all">View all &rarr;</a>
+                    </div>
+                    
+                    <div class="list-card billing-card">
+                        <div class="billing-header">
+                            <h2>$12,400</h2>
+                            <span class="due-date">due Aug 1, 2026</span>
+                        </div>
+                        <p class="invoice-number text-orange">Invoice #MV-2026-0714</p>
+                        
+                        <!-- Simple mockup of a chart area -->
+                        <div class="billing-chart">
+                            <div class="chart-labels">
+                                <span>Feb</span>
+                                <span>Mar</span>
+                                <span>Apr</span>
+                                <span>May</span>
+                                <span>Jun</span>
+                                <span>Jul</span>
+                            </div>
+                        </div>
+
+                        <div class="billing-actions">
+                            <button class="btn btn-outline btn-full">View Invoice</button>
+                            <button class="btn btn-primary btn-full">Pay Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 0; font-size: 13px; color: #6B7280;">
+        &copy; 2026 Stackly, Client Portal · Privacy Policy · Support
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle logic
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            var navLinks = document.getElementById('navLinks');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = '#fff';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+</body>
+</html>

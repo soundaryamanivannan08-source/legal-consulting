@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Stackly</title>
+    <!-- CSS and Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" style="height: 44px; width: auto;">
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="about.html">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="contact.html">Contact Us</a>
+            <div class="nav-actions-mobile">
+                <a href="login.html" class="btn btn-outline btn-sm btn-full">Login</a>
+                
+            </div>
+        </div>
+        <div class="nav-actions">
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container text-center">
+            <div class="blog-hero-content">
+                <div class="tag-blue">INSIGHTS</div>
+                <h1>The Stackly Journal</h1>
+                <p>Analysis and perspective on the law and business decisions shaping enterprise today.</p>
+                
+               
+                
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="featured-article-section bg-light">
+        <div class="container">
+            <div class="featured-article-card" data-aos="fade-up">
+                <div class="featured-image">
+                    <img src="Assest/blog_gavel_1785840511274.webp" alt="Featured Article">
+                </div>
+                <div class="featured-content">
+                    <div class="tag-blue">Corporate Law</div>
+                    <h2>What the new cross-border M&A rules mean for mid-market acquirers</h2>
+                    <p>A practical breakdown of the regulatory changes taking effect this autumn — and how to prepare your next deal.</p>
+                    <a href="404.html" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Articles -->
+    <section class="recent-articles container">
+        <div class="section-header">
+            <div class="tag-blue">LATEST</div>
+            <h2>Recent Articles</h2>
+        </div>
+        <div class="blog-grid">
+            <div class="journal-card" data-aos="fade-up">
+                <div class="journal-image">
+                    <img src="Assest/blog_compliance_1785840523597.webp" alt="Compliance">
+                </div>
+                <div class="journal-content">
+                    <div class="journal-meta">
+                        <span>Compliance</span> &bull; <span>Jul 14, 2026</span>
+                    </div>
+                    <h3>Building a compliance program that scales with growth</h3>
+                    <div class="journal-author">
+                        <div class="author-initial bg-primary">LT</div>
+                        <span>Lena Torres</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="journal-card" data-aos="fade-up">
+                <div class="journal-image">
+                    <img src="Assest/blog_tax_1785840535335.webp" alt="Tax">
+                </div>
+                <div class="journal-content">
+                    <div class="journal-meta">
+                        <span>Finance</span> &bull; <span>Jul 10, 2026</span>
+                    </div>
+                    <h3>Tax structuring considerations for cross-border teams</h3>
+                    <div class="journal-author">
+                        <div class="author-initial bg-primary">MK</div>
+                        <span>Marcus Kelly</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="journal-card" data-aos="fade-up">
+                <div class="journal-image">
+                    <img src="Assest/blog_ai_1785840555565.webp" alt="Technology">
+                </div>
+                <div class="journal-content">
+                    <div class="journal-meta">
+                        <span>Technology</span> &bull; <span>Jul 02, 2026</span>
+                    </div>
+                    <h3>AI governance policies every enterprise needs in 2026</h3>
+                    <div class="journal-author">
+                        <div class="author-initial bg-primary">PS</div>
+                        <span>Priya Shah</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="journal-card" data-aos="fade-up">
+                <div class="journal-image">
+                    <img src="Assest/blog_mna_1785840568324.webp" alt="Business">
+                </div>
+                <div class="journal-content">
+                    <div class="journal-meta">
+                        <span>Business</span> &bull; <span>Jun 28, 2026</span>
+                    </div>
+                    <h3>Red flags we look for before every acquisition</h3>
+                    <div class="journal-author">
+                        <div class="author-initial bg-primary">JV</div>
+                        <span>James Vance</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="journal-card" data-aos="fade-up">
+                <div class="journal-image">
+                    <img src="Assest/blog_risk_1785840578760.webp" alt="Risk">
+                </div>
+                <div class="journal-content">
+                    <div class="journal-meta">
+                        <span>Risk</span> &bull; <span>Jun 15, 2026</span>
+                    </div>
+                    <h3>A framework for enterprise risk in volatile markets</h3>
+                    <div class="journal-author">
+                        <div class="author-initial bg-primary">RO</div>
+                        <span>Raj Oberoi</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="journal-card" data-aos="fade-up">
+                <div class="journal-image">
+                    <img src="Assest/blog_onboarding_1785840589930.webp" alt="Management">
+                </div>
+                <div class="journal-content">
+                    <div class="journal-meta">
+                        <span>Management</span> &bull; <span>Jun 5, 2026</span>
+                    </div>
+                    <h3>What great client onboarding looks like at scale</h3>
+                    <div class="journal-author">
+                        <div class="author-initial bg-primary">SM</div>
+                        <span>Sarah Mendez</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Tips & Guides -->
+    <section class="tips-guides-section container">
+        <div class="tips-guides-wrapper" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; margin-top: 60px; margin-bottom: 60px;">
+            <div class="tips-guides-content" style="flex: 1; min-width: 300px;" data-aos="fade-right">
+                <div class="tag-blue">GUIDES</div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 20px; color: var(--text-dark);">Legal Tips & Guides</h2>
+                <p style="color: #6B7280; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">Share practical legal advice for individuals and businesses.</p>
+                <ul class="tips-list" style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                        <svg style="flex-shrink: 0; margin-top: 4px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <a href="#" style="text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-dark)'">How to Draft a Strong Business Contract</a>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                        <svg style="flex-shrink: 0; margin-top: 4px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <a href="#" style="text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-dark)'">Essential Legal Documents for Startups</a>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                        <svg style="flex-shrink: 0; margin-top: 4px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <a href="#" style="text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-dark)'">Employee Rights Every Employer Should Know</a>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                        <svg style="flex-shrink: 0; margin-top: 4px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <a href="#" style="text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-dark)'">Understanding Property Registration</a>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                        <svg style="flex-shrink: 0; margin-top: 4px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <a href="#" style="text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-dark)'">Protecting Your Intellectual Property</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tips-guides-image" style="flex: 1; min-width: 300px; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" data-aos="fade-left">
+                <img src="Assest/why-choose-us.webp" alt="Legal Tips and Guides" style="width: 100%; height: auto; display: block; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies-section container" style="margin-top: 80px; margin-bottom: 80px;">
+        <div class="section-header text-center">
+            <div class="tag-blue">SUCCESS STORIES</div>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 20px; color: var(--text-dark);">Real-World Case Studies</h2>
+            <p style="color: #6B7280; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto 40px;">Explore how we've helped clients overcome complex legal challenges and achieve their business goals.</p>
+        </div>
+        
+        <div class="case-studies-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 40px;">
+            <!-- Card 1 -->
+            <div class="case-card" style="background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up">
+                <img src="Assest/practice_areas.webp" alt="Case Study 1" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--primary); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">Industry: Technology</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: var(--text-dark);">Cross-Border IP Dispute Resolution</h3>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: var(--text-dark);">Challenge:</strong> <span style="color: #6B7280; font-size: 0.95rem;">A global tech startup faced multiple patent infringement claims from a major competitor across three different jurisdictions.</span>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: var(--text-dark);">Legal Solution:</strong> <span style="color: #6B7280; font-size: 0.95rem;">We initiated a consolidated defensive strategy, leveraging prior art and counter-claims to force settlement negotiations.</span>
+                    </div>
+                    <div style="margin-top: auto; padding-top: 15px; border-top: 1px solid #E5E7EB;">
+                        <strong style="color: var(--green);">Outcome:</strong> <span style="color: var(--text-dark); font-weight: 500; font-size: 0.95rem;">Favorable settlement with full operating freedom and no financial damages.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="case-card" style="background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up">
+                <img src="Assest/legal_case_studies.webp" alt="Case Study 2" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--primary); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">Industry: Finance</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: var(--text-dark);">Merger & Acquisition Compliance</h3>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: var(--text-dark);">Challenge:</strong> <span style="color: #6B7280; font-size: 0.95rem;">Navigating complex antitrust regulations during the $500M acquisition of a regional competitor in a highly scrutinized market.</span>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: var(--text-dark);">Legal Solution:</strong> <span style="color: #6B7280; font-size: 0.95rem;">Conducted rigorous preemptive compliance audits and structured the deal to proactively address regulatory concerns.</span>
+                    </div>
+                    <div style="margin-top: auto; padding-top: 15px; border-top: 1px solid #E5E7EB;">
+                        <strong style="color: var(--green);">Outcome:</strong> <span style="color: var(--text-dark); font-weight: 500; font-size: 0.95rem;">Approval secured 3 months ahead of schedule with zero divestiture requirements.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="case-card" style="background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up">
+                <img src="Assest/why_contact_us.webp" alt="Case Study 3" style="width: 100%; height: 200px; object-fit: cover; filter: grayscale(30%) contrast(120%);">
+                <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--primary); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">Industry: Healthcare</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: var(--text-dark);">Data Privacy Breach Defense</h3>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: var(--text-dark);">Challenge:</strong> <span style="color: #6B7280; font-size: 0.95rem;">A major healthcare provider experienced a cyberattack compromising sensitive patient records, triggering immediate federal investigations.</span>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: var(--text-dark);">Legal Solution:</strong> <span style="color: #6B7280; font-size: 0.95rem;">Led the incident response, managing regulatory disclosures and negotiating with regulatory agencies to mitigate penalties.</span>
+                    </div>
+                    <div style="margin-top: auto; padding-top: 15px; border-top: 1px solid #E5E7EB;">
+                        <strong style="color: var(--green);">Outcome:</strong> <span style="color: var(--text-dark); font-weight: 500; font-size: 0.95rem;">Avoided formal sanctions and successfully defended against subsequent class-action lawsuits.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal News & Updates -->
+    <section class="news-updates-section bg-light" style="padding: clamp(40px, 8vw, 80px) 0;">
+        <div class="container">
+            <div class="news-updates-wrapper" style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center; flex-direction: row-reverse;">
+                <div class="news-updates-content" style="flex: 1; min-width: 300px;" data-aos="fade-left">
+                    <div class="tag-blue">UPDATES</div>
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 20px; color: var(--text-dark);">Legal News & Regulatory Updates</h2>
+                    <p style="color: #6B7280; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">Keep visitors informed about the latest changes in the legal landscape.</p>
+                    
+                    <div class="news-list" style="display: flex; flex-direction: column; gap: 20px;">
+                        <div class="news-item" style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                            <div style="font-size: 0.8rem; font-weight: 600; color: #6B7280; text-transform: uppercase; margin-bottom: 5px;">New Laws</div>
+                            <a href="#" style="text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 1.1rem; display: block; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-dark)'">Comprehensive Data Protection Bill Passed</a>
+                        </div>
+                        <div class="news-item" style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--green); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                            <div style="font-size: 0.8rem; font-weight: 600; color: #6B7280; text-transform: uppercase; margin-bottom: 5px;">Government Regulations</div>
+                            <a href="#" style="text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 1.1rem; display: block; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text-dark)'">New SEC Disclosure Requirements for 2027</a>
+                        </div>
+                        <div class="news-item" style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--orange); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                            <div style="font-size: 0.8rem; font-weight: 600; color: #6B7280; text-transform: uppercase; margin-bottom: 5px;">Court Decisions & Compliance</div>
+                            <a href="#" style="text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 1.1rem; display: block; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-dark)'">Landmark Ruling on AI-Generated Content and Liability</a>
+                        </div>
+                        <div class="news-item" style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--blue-dark); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                            <div style="font-size: 0.8rem; font-weight: 600; color: #6B7280; text-transform: uppercase; margin-bottom: 5px;">Business Legal Changes</div>
+                            <a href="#" style="text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 1.1rem; display: block; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='var(--blue-dark)'" onmouseout="this.style.color='var(--text-dark)'">Updates to Cross-Border Taxation Rules You Need to Know</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-updates-image" style="flex: 1; min-width: 300px; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" data-aos="fade-right">
+                    <img src="Assest/legal_news_updates.webp" alt="Legal News and Updates" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Categories -->
+    <section class="popular-categories bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="tag-blue">BROWSE</div>
+                <h2>Popular Categories</h2>
+            </div>
+            <div class="categories-flex">
+                <a href="#" class="category-btn">Corporate Law</a>
+                <a href="#" class="category-btn">Business</a>
+                <a href="#" class="category-btn">Compliance</a>
+                <a href="#" class="category-btn">Technology</a>
+                <a href="#" class="category-btn">Finance</a>
+                <a href="#" class="category-btn">Startup</a>
+                <a href="#" class="category-btn">Risk</a>
+                <a href="#" class="category-btn">Management</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="blog-newsletter container" data-aos="zoom-in">
+        <div class="blog-news-box">
+            <h2>Stay ahead of what's next</h2>
+            <p>Monthly insights on law, business strategy, and your future.</p>
+            <form class="blog-news-form">
+                <input type="email" placeholder="Email address" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+            <span class="news-disclaimer">No spam, just quality insights. Unsubscribe anytime.</span>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="blog-resources bg-light">
+        <div class="container">
+            <div class="section-header">
+                <div class="tag-blue">DOWNLOADS</div>
+                <h2>Resources</h2>
+            </div>
+            <div class="resources-grid">
+                <a href="#" class="resource-card">
+                    <div class="resource-icon bg-yellow-light">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h4>Whitepapers</h4>
+                </a>
+                <a href="#" class="resource-card">
+                    <div class="resource-icon bg-yellow-light">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    </div>
+                    <h4>Case Studies</h4>
+                </a>
+                <a href="#" class="resource-card">
+                    <div class="resource-icon bg-yellow-light">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <h4>Guides</h4>
+                </a>
+                <a href="#" class="resource-card">
+                    <div class="resource-icon bg-yellow-light">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h4>Webinars</h4>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo text-white">
+            <img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" style="height: 44px; width: auto;">
+        </a>
+                <p>Professional legal and business advisory for modern enterprises operating across borders.</p>
+                <div class="social-links">
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h4>Practice Areas</h4>
+                <a href="#">Corporate Law</a>
+                <a href="#">Tax Advisory</a>
+                <a href="#">Compliance</a>
+                <a href="#">Litigation</a>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <a href="#">hello@stackly.com</a>
+                <a href="#">+1 (555) 000-0000</a>
+                <a href="#">One Battery Park Plaza, New York</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Inc. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        // Inject Mobile Header
+        if (!document.getElementById('mobileHeader')) {
+            const mobileHeader = document.createElement('div');
+            mobileHeader.id = 'mobileHeader';
+            mobileHeader.className = 'mobile-menu-header';
+                        mobileHeader.innerHTML = '<button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">&times;</button>' + '<img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" class="mobile-menu-logo">';
+            navLinks.insertBefore(mobileHeader, navLinks.firstChild);
+
+            document.getElementById('mobileCloseBtn').addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+    </script>
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+</body>
+</html>

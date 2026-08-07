@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Pricing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" style="height: 44px; width: auto;">
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="about.html">About Us</a>
+            <a href="pricing.html" class="active">Pricing</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact Us</a>
+            <div class="nav-actions-mobile">
+                <a href="login.html" class="btn btn-outline btn-sm btn-full">Login</a>
+               
+            </div>
+        </div>
+        <div class="nav-actions">
+            <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+            </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+    </nav>
+
+    <!-- Pricing Header Section -->
+    <section class="pricing-header container">
+        <div  data-aos="fade-up">
+            <div class="tag-blue">— PRICING</div>
+            <h1>Retainer plans built for every stage</h1>
+            <p>Transparent monthly retainers with no hidden fees. Switch plans<br>or cancel anytime — no long-term commitment.</p>
+        </div>
+        
+        <div class="billing-toggle" data-aos="fade-up">
+            <span>Monthly</span>
+            <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <span>Annual</span>
+            <span class="save-badge">Save 20%</span>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="pricing-cards container" style="padding-top: 0;">
+        <div class="pricing-grid">
+            <div class="pricing-card" data-aos="fade-up">
+                <h4 class="plan-name text-blue">ESSENTIAL</h4>
+                <div class="price">
+                    <span class="currency">$</span>1,200<span class="period">/month</span>
+                </div>
+                <p class="plan-desc">For founders and small teams who need reliable counsel on standby.</p>
+                <ul class="plan-features">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 5 hours of advisory per month</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Email & phone communication</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 24-hour response time</li>
+                </ul>
+                <a href="#" class="btn btn-outline btn-full">Book Consultation</a>
+            </div>
+            
+            <div class="pricing-card dark-card" data-aos="fade-up">
+                <div class="popular-tag">Most Popular</div>
+                <h4 class="plan-name text-yellow">PROFESSIONAL</h4>
+                <div class="price">
+                    <span class="currency">$</span>3,500<span class="period">/month</span>
+                </div>
+                <p class="plan-desc">For growing companies navigating regular legal complexity.</p>
+                <ul class="plan-features">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 15 hours of advisory per month</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Dedicated legal advisor</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Same-day response time</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Quarterly risk review</li>
+                </ul>
+                <a href="#" class="btn btn-primary btn-full">Get Started</a>
+            </div>
+            
+            <div class="pricing-card" data-aos="fade-up">
+                <h4 class="plan-name text-blue">ENTERPRISE</h4>
+                <div class="price">
+                    Custom
+                </div>
+                <p class="plan-desc">For mid-market and institutions with complex, ongoing needs.</p>
+                <ul class="plan-features">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited advisory hours</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 2 dedicated legal advisor</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> On-call 24/7 priority line</li>
+                </ul>
+                <a href="#" class="btn btn-outline btn-full">Book Consultation</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Compare Plans -->
+    <section class="compare-section container">
+        <div class="section-header text-center" style="text-align: center;" data-aos="fade-up">
+            <div class="tag-blue">— COMPARE PLANS</div>
+            <h2>Every feature, side by side</h2>
+        </div>
+        
+        <div class="compare-table-wrapper" data-aos="fade-up">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Essential</th>
+                        <th>Professional</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Advisory hours/month</td>
+                        <td>5</td>
+                        <td>15</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Dedicated advisor</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                    </tr>
+                    <tr>
+                        <td>Response time</td>
+                        <td>24 hr</td>
+                        <td>Same day</td>
+                        <td>24/7 Priority</td>
+                    </tr>
+                    <tr>
+                        <td>Document review</td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                    </tr>
+                    <tr>
+                        <td>Quarterly risk review</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                    </tr>
+                    <tr>
+                        <td>Direct partner legal team</td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><span class="dash-icon">—</span></td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                    </tr>
+                    <tr>
+                        <td>Client portal access</td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                        <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Included Services / Coverage Areas -->
+    <section class="coverage-section container" style="background-color: var(--bg-gray); padding: 5rem; border-radius: 1.5rem; margin-bottom: 5rem;">
+        <div class="section-header text-center" style="text-align: center;" data-aos="fade-up">
+            <div class="tag-blue">— COVERAGE</div>
+            <h2>What's included in your retainer</h2>
+            <p style="margin: 0 auto;">No matter which tier you choose, you get access to our core competencies.</p>
+        </div>
+        <div class="grid-4">
+            <div class="coverage-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="icon-box blue-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                <h4>Contracts & Agreements</h4>
+                <p>Review, drafting, and negotiation of all standard business contracts.</p>
+            </div>
+            <div class="coverage-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon-box orange-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <h4>IP Protection</h4>
+                <p>Trademark filings, copyright registrations, and IP dispute resolution.</p>
+            </div>
+            <div class="coverage-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box blue-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h4>Employment Law</h4>
+                <p>Employee handbooks, HR compliance, and termination counseling.</p>
+            </div>
+            <div class="coverage-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box orange-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <h4>Corporate Governance</h4>
+                <p>Board resolutions, shareholder agreements, and entity management.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition / ROI -->
+    <section class="roi-section container" style="margin-bottom: 5rem;">
+        <div class="roi-grid">
+            <div class="roi-content" data-aos="fade-right">
+                <div class="tag-blue">— THE VALUE</div>
+                <h2>Why invest in proactive legal counsel?</h2>
+                <p>Reactive legal work is expensive, stressful, and disruptive. A Stackly retainer flips the model, prioritizing risk prevention and strategic growth.</p>
+                <ul class="roi-list">
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> <div><strong>Predictable Budgeting:</strong> No surprise invoices or hourly billing anxiety.</div></li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> <div><strong>Risk Mitigation:</strong> Catch compliance issues before they become costly lawsuits.</div></li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> <div><strong>Faster Deals:</strong> Dedicated counsel means quicker contract turnarounds.</div></li>
+                </ul>
+            </div>
+            <div class="roi-image" data-aos="fade-left">
+                <div class="stat-card-overlay">
+                    <h3>300%</h3>
+                    <p>Average ROI on proactive legal spend vs reactive litigation costs.</p>
+                </div>
+                <img src="Assest/unsplash_6.webp" alt="Financial Charts">
+            </div>
+        </div>
+    </section>
+
+    <!-- Onboarding Process -->
+    <section class="onboarding-section container" style="margin-bottom: 5rem;">
+        <div class="section-header text-center" style="text-align: center;" data-aos="fade-up">
+            <div class="tag-blue">— ONBOARDING</div>
+            <h2>How we start working together</h2>
+            <p style="margin: 0 auto;">A seamless transition to having your own external legal department.</p>
+        </div>
+        <div class="process-steps" data-aos="fade-up">
+            <div class="step">
+                <div class="step-number">01</div>
+                <h4>Discovery Call</h4>
+                <p>We assess your current legal needs and risk profile.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <h4>Custom Plan</h4>
+                <p>We tailor a retainer agreement that fits your budget.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <h4>Audit & Setup</h4>
+                <p>We conduct a baseline compliance audit and setup communications.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <h4>Ongoing Counsel</h4>
+                <p>You get immediate access to your dedicated legal team.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="container" style="padding: 0 5% 5rem;">
+        <div class="single-testimonial" data-aos="zoom-in">
+            <div class="stars">★★★★★</div>
+            <p>"The transparent pricing gives us complete peace of mind, and the advisory keeps us compliant. Worth every penny."</p>
+            <div class="author">
+                David Chen, General Counsel, Alpine Retail
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Story Highlight -->
+    <section class="success-story container" style="margin-bottom: 5rem;">
+        <div class="story-card" data-aos="fade-up">
+            <div class="story-content">
+                <div class="tag-blue">— CLIENT SUCCESS</div>
+                <h2>Scaling without the risk</h2>
+                <p>"When we secured our Series A, our contract volume exploded. Stackly's Professional Retainer gave us a dedicated advisor who cleared our backlog in weeks, allowing our sales team to close deals 40% faster without compromising on our legal protections."</p>
+                <div class="story-stats">
+                    <div class="s-stat">
+                        <h4>40%</h4>
+                        <span>Faster Deal Cycles</span>
+                    </div>
+                    <div class="s-stat">
+                        <h4>Zero</h4>
+                        <span>Compliance Breaches</span>
+                    </div>
+                </div>
+            </div>
+            <div class="story-image">
+                <img src="Assest/unsplash_7.webp" alt="Team collaborating">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section container" style="background-color: var(--bg-gray); padding: 5rem 5%; max-width: 100%; border-radius: 0;">
+        <div class="section-header text-center" style="text-align: center;" data-aos="fade-up">
+            <div class="tag-blue" style="margin: 0 auto 1rem;">— PRICING FAQ</div>
+            <h2>Common questions</h2>
+        </div>
+        <div class="faq-list" style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item active" style="background: white;" data-aos="fade-up">
+                <div class="faq-question" style="background: white;">
+                    <h4>Can I change plans later?</h4>
+                    <span class="faq-icon text-blue">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes — upgrade, downgrade, or cancel anytime. Changes take effect at the start of your next billing cycle.</p>
+                </div>
+            </div>
+            <div class="faq-item" style="background: white;" data-aos="fade-up">
+                <div class="faq-question" style="background: white;">
+                    <h4>What happens if I go over my advisory hours?</h4>
+                    <span class="faq-icon text-blue">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>If you require additional support beyond your plan's allotted hours, we bill at a transparent, discounted hourly rate specifically for retainer clients.</p>
+                </div>
+            </div>
+            <div class="faq-item" style="background: white;" data-aos="fade-up">
+                <div class="faq-question" style="background: white;">
+                    <h4>Is there a contract or commitment?</h4>
+                    <span class="faq-icon text-blue">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No long-term commitments are required. Our retainers are month-to-month unless you choose an annual plan for a discount.</p>
+                </div>
+            </div>
+            <div class="faq-item" style="background: white;" data-aos="fade-up">
+                <div class="faq-question" style="background: white;">
+                    <h4>How does Enterprise pricing work?</h4>
+                    <span class="faq-icon text-blue">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Enterprise pricing is customized based on the volume and complexity of your legal needs. We tailor a dedicated team and unlimited access model to fit your organization perfectly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section container" style="margin-top: 5rem;">
+        <div class="cta-box" style="padding: 4rem 2rem;" data-aos="zoom-in">
+            <h2>Still not sure which plan fits?</h2>
+            <p style="color: white; font-size: 1rem; margin-bottom: 2rem;">Talk to an advisor today — we'll recommend the right plan for your business, free of charge.</p>
+            <a href="#" class="btn btn-primary">Book Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo white">
+            <img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" style="height: 44px; width: auto;">
+        </div>
+                    <p>Premium legal and business advisory for enterprises speeding across borders.</p>
+                    <div class="socials">
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Practice Areas</h4>
+                    <ul>
+                        <li><a href="#">Corporate Law</a></li>
+                        <li><a href="#">Tax Advisory</a></li>
+                        <li><a href="#">Compliance</a></li>
+                        <li><a href="#">Litigation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>hello@stackly.com</p>
+                    <p>+1 (555) 123-4567</p>
+                    <p>One Liberty Plaza, New York</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        // Inject Mobile Header
+        if (!document.getElementById('mobileHeader')) {
+            const mobileHeader = document.createElement('div');
+            mobileHeader.id = 'mobileHeader';
+            mobileHeader.className = 'mobile-menu-header';
+                        mobileHeader.innerHTML = '<button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">&times;</button>' + '<img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" class="mobile-menu-logo">';
+            navLinks.insertBefore(mobileHeader, navLinks.firstChild);
+
+            document.getElementById('mobileCloseBtn').addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // FAQ Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found - Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        .not-found-section {
+            min-height: calc(100vh - 80px); /* 80px for navbar approx */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1rem;
+            background-color: var(--bg-gray);
+        }
+        
+        .not-found-content {
+            max-width: 600px;
+        }
+
+        .not-found-content h1 {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-shadow: 0 10px 20px rgba(26, 86, 219, 0.15);
+        }
+
+        .not-found-content h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-family: 'Playfair Display', serif;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .not-found-content p {
+            font-size: 1.125rem;
+            color: var(--text-main);
+            margin-bottom: 2.5rem;
+        }
+
+        .not-found-icon {
+            margin-bottom: 2rem;
+            color: var(--primary);
+            opacity: 0.8;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" style="height: 44px; width: auto;">
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="about.html">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact Us</a>
+            <div class="nav-actions-mobile">
+                <a href="login.html" class="btn btn-outline btn-sm btn-full">Login</a>
+                <a href="signup.html" class="btn btn-primary btn-sm btn-full" style="margin-top: 10px;">Signup</a>
+            </div>
+        </div>
+        <div class="nav-actions">
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            <a href="signup.html" class="btn btn-primary btn-sm">Signup</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+    </nav>
+
+    <!-- 404 Content -->
+    <section class="not-found-section">
+        <div class="not-found-content" data-aos="zoom-in">
+            <div class="not-found-icon">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </div>
+            <h1>404</h1>
+            <h2>Page Not Found</h2>
+            <p>We're sorry, the page you are looking for doesn't exist or has been moved. Let's get you back on track.</p>
+            <a href="index.html" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Home
+            </a>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+            
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+
+        // Inject Mobile Header
+        if (!document.getElementById('mobileHeader')) {
+            const mobileHeader = document.createElement('div');
+            mobileHeader.id = 'mobileHeader';
+            mobileHeader.className = 'mobile-menu-header';
+                        mobileHeader.innerHTML = '<button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">&times;</button>' + '<img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" class="mobile-menu-logo">';
+            navLinks.insertBefore(mobileHeader, navLinks.firstChild);
+
+            document.getElementById('mobileCloseBtn').addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

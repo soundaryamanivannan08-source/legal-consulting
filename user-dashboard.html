@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Stackly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A56DB;
+            --dark: #111827;
+            --text-main: #4B5563;
+            --bg-gray: #F3F4F6;
+            --border-color: #E5E7EB;
+            --text-dark: #1F2937;
+            --sidebar-width: 260px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+            background-color: var(--bg-gray);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--dark);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            z-index: 50;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .nav-menu {
+            flex: 1;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow-y: auto;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.05);
+            color: white;
+        }
+
+        .nav-item.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .nav-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .sidebar-footer {
+            padding: 24px 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-name {
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .logout-btn {
+            width: 100%;
+            padding: 10px 16px;
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #FCA5A5;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .logout-btn:hover {
+            background-color: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.5);
+            color: #FEE2E2;
+        }
+
+        /* Top Header Bar */
+        
+        .top-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            padding: 16px 40px;
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            width: calc(100% - var(--sidebar-width));
+            left: var(--sidebar-width);
+            z-index: 40;
+            transition: left 0.3s ease, width 0.3s ease;
+        }
+
+        .top-header-left {
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .top-header-left .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            color: var(--text-dark);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-gray);
+            border-radius: 8px;
+            padding: 8px 16px;
+            min-width: 240px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: none;
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text-dark);
+            width: 100%;
+        }
+
+        .search-bar input::placeholder {
+            color: #9CA3AF;
+        }
+
+        .search-bar svg {
+            color: #9CA3AF;
+            flex-shrink: 0;
+        }
+
+        .header-icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-main);
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .header-icon-btn:hover {
+            background: var(--bg-gray);
+            color: var(--text-dark);
+        }
+
+        .notif-dot {
+            width: 8px;
+            height: 8px;
+            background: #EF4444;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            border: 2px solid white;
+        }
+
+        .header-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 12px 6px 6px;
+            border-radius: 50px;
+            background: var(--bg-gray);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .header-user:hover {
+            background: #E5E7EB;
+        }
+
+        .header-avatar {
+            width: 32px;
+            height: 32px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .header-user-name {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .header-user-role {
+            font-size: 12px;
+            color: var(--text-main);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content-inner {
+            padding: 90px 40px 40px;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .page-header {
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: var(--text-dark);
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 8px;
+            padding-top: 16px;
+        }
+
+        .page-subtitle {
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        /* Dashboard Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .stat-title {
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            color: var(--text-dark);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .stat-trend {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #059669;
+            background: #D1FAE5;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        /* Common Layouts */
+        .section-title {
+            color: var(--text-dark);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Case Cards */
+        .case-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: box-shadow 0.2s;
+        }
+
+        .case-card:hover {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .case-title {
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .case-type {
+            color: var(--text-main);
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-progress { background: #DBEAFE; color: #1D4ED8; }
+        .badge-review { background: #FEF3C7; color: #D97706; }
+        .badge-closed { background: #D1FAE5; color: #059669; }
+
+        .progress-container {
+            margin: 16px 0;
+        }
+
+        .progress-bar-bg {
+            height: 6px;
+            background: var(--bg-gray);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: var(--text-main);
+            margin-top: 6px;
+            text-align: right;
+        }
+
+        .case-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+
+        .case-date {
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        .lawyer-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .lawyer-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Document List */
+        .doc-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .doc-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .doc-icon {
+            width: 40px;
+            height: 40px;
+            background: #FEE2E2;
+            color: #DC2626;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+        }
+
+        .doc-icon svg { width: 20px; height: 20px; }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-name {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .doc-meta {
+            color: var(--text-main);
+            font-size: 12px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-download {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-download:hover {
+            background: var(--bg-gray);
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            background: var(--primary);
+            border: none;
+            color: white;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #1e40af;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .filter-tab {
+            padding: 12px 16px;
+            color: var(--text-main);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+        }
+        
+        .filter-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* Messages */
+        .msg-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            align-items: flex-start;
+        }
+        
+        .msg-unread {
+            background: #F8FAFC;
+        }
+        
+        .msg-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-top: 16px;
+        }
+
+        /* Appointments */
+        .apt-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            background: white;
+        }
+        
+        .apt-date {
+            text-align: center;
+            min-width: 60px;
+            padding-right: 20px;
+            border-right: 1px solid var(--border-color);
+        }
+        
+        .apt-month {
+            font-size: 12px;
+            color: #DC2626;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .apt-day {
+            font-size: 24px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* Profile */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+
+        .sidebar-close-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #9CA3AF;
+            cursor: pointer;
+            padding: 4px;
+            transition: color 0.3s;
+        }
+        .sidebar-close-btn:hover {
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .top-header {
+                width: 100% !important;
+                left: 0 !important;
+                padding: 12px 20px !important;
+            }
+            .main-content-inner {
+                padding: 80px 16px 16px 16px !important;
+            }
+
+            .main-content {
+                margin-left: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+            .main-content-inner {
+                padding: 16px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
+            }
+            .top-header {
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            * {
+                box-sizing: border-box !important;
+            }
+
+            .main-content-inner {
+                padding: 16px !important;
+                max-width: 100%;
+            width: 100%;
+                box-sizing: border-box;
+            }
+            .page-title {
+                font-size: 1.5rem !important;
+            }
+            .stats-grid {
+                display: flex;
+                flex-direction: column;
+            }
+            .stat-card {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+
+            .sidebar-close-btn {
+                display: block;
+            }
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .main-content-inner {
+                padding: 20px;
+            }
+            .top-header {
+                padding: 12px 20px;
+            }
+            .top-header-left .mobile-toggle {
+                display: block;
+            }
+            .search-bar {
+                min-width: 120px;
+            }
+            .header-user-name, .header-user-role {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header" style="justify-content: space-between; width: 100%;">
+            <img src="Assest/stackly_071_transparent.webp" alt="Stackly" style="height: 44px; width: auto;">
+            <button class="sidebar-close-btn" onclick="toggleSidebar()" aria-label="Close sidebar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+
+        <nav class="nav-menu">
+            <a class="nav-item active" onclick="switchTab('dashboard', this)">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                Dashboard
+            </a>
+            <a class="nav-item" onclick="switchTab('cases', this)">
+                <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                My Cases
+            </a>
+            <a class="nav-item" onclick="switchTab('documents', this)">
+                <svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                Documents
+            </a>
+            <a class="nav-item" onclick="switchTab('appointments', this)">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Appointments
+            </a>
+            <a class="nav-item" onclick="switchTab('billing', this)">
+                <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                Billing
+            </a>
+            <a class="nav-item" onclick="switchTab('messages', this)">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Messages
+            </a>
+            <a class="nav-item" onclick="switchTab('profile', this)">
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Profile
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="avatar">AC</div>
+                <div class="user-info">
+                    <div class="user-name">Alex Carter</div>
+                </div>
+            </div>
+            <a href="login.html" class="logout-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header Bar -->
+        <header class="top-header">
+            <div class="top-header-left">
+                <button class="mobile-toggle" id="mobileToggle2" aria-label="Toggle sidebar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                
+            </div>
+            <button class="header-icon-btn" aria-label="Notifications">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                <span class="notif-dot"></span>
+            </button>
+            <div class="header-user">
+                <div class="header-avatar">AC</div>
+                <div>
+                    <div class="header-user-name">Alex Carter</div>
+                    <div class="header-user-role">Client</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content-inner">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="page-header">
+                <h1 class="page-title">Welcome back, Alex</h1>
+                <p class="page-subtitle">Here's what's happening across your matters with Stackly.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-title">Active Cases</div>
+                    <div class="stat-value">3</div>
+                    <span class="stat-trend">+1 this month</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Documents Pending Review</div>
+                    <div class="stat-value">5</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Next Consultation</div>
+                    <div class="stat-value">Jul 24</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Outstanding Balance</div>
+                    <div class="stat-value">$12,400</div>
+                </div>
+            </div>
+
+            <div class="grid-layout">
+                <div class="cases-area">
+                    <h2 class="section-title">Active Cases</h2>
+                    
+                    <div class="case-card">
+                        <div class="case-header">
+                            <div>
+                                <div class="case-title">Cross-Border Merger — Northbridge / Alta Health</div>
+                                <div class="case-type">Corporate Law</div>
+                            </div>
+                            <span class="badge badge-progress">In Progress</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 72%"></div>
+                            </div>
+                            <div class="progress-text">72% Complete</div>
+                        </div>
+                        <div class="case-footer">
+                            <div class="case-date">Filed: Jun 2 2026</div>
+                            <div class="lawyer-info">
+                                <span>Assigned to: James</span>
+                                <div class="lawyer-avatar">J</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <div class="case-header">
+                            <div>
+                                <div class="case-title">Regulatory Compliance Review — 2026</div>
+                                <div class="case-type">Compliance</div>
+                            </div>
+                            <span class="badge badge-review">In Review</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 45%"></div>
+                            </div>
+                            <div class="progress-text">45% Complete</div>
+                        </div>
+                        <div class="case-footer">
+                            <div class="case-date">Filed: May 14 2026</div>
+                            <div class="lawyer-info">
+                                <span>Assigned to: Priya Shah</span>
+                                <div class="lawyer-avatar">P</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <div class="case-header">
+                            <div>
+                                <div class="case-title">Vendor Contract Renegotiation</div>
+                                <div class="case-type">Corporate Law</div>
+                            </div>
+                            <span class="badge badge-closed">Closed</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 100%"></div>
+                            </div>
+                            <div class="progress-text">100% Complete</div>
+                        </div>
+                        <div class="case-footer">
+                            <div class="case-date">Filed: Mar 30 2026</div>
+                            <div class="lawyer-info">
+                                <span>Assigned to: Sarah</span>
+                                <div class="lawyer-avatar">S</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-area">
+                    <h2 class="section-title">Recent Documents</h2>
+                    <div class="card">
+                        <div class="doc-item">
+                            <div class="doc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                            </div>
+                            <div class="doc-info">
+                                <div class="doc-name">Merger Agreement — Draft v4.pdf</div>
+                                <div class="doc-meta">
+                                    <span>Jul 18 2026</span>
+                                    <span>2.4 MB</span>
+                                </div>
+                            </div>
+                            <button class="btn-download">↓</button>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                            </div>
+                            <div class="doc-info">
+                                <div class="doc-name">Compliance Audit Summary.pdf</div>
+                                <div class="doc-meta">
+                                    <span>Jul 15 2026</span>
+                                    <span>1.1 MB</span>
+                                </div>
+                            </div>
+                            <button class="btn-download">↓</button>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                            </div>
+                            <div class="doc-info">
+                                <div class="doc-name">Vendor Contract — Signed.pdf</div>
+                                <div class="doc-meta">
+                                    <span>Jun 30 2026</span>
+                                    <span>890 KB</span>
+                                </div>
+                            </div>
+                            <button class="btn-download">↓</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases Section -->
+        <section id="cases" class="section">
+            <div class="page-header">
+                <h1 class="page-title">My Cases</h1>
+            </div>
+            
+            <div class="filter-tabs">
+                <div class="filter-tab active">All</div>
+                <div class="filter-tab">Active</div>
+                <div class="filter-tab">In Review</div>
+                <div class="filter-tab">Closed</div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-header">
+                    <div>
+                        <div class="case-title">Cross-Border Merger — Northbridge / Alta Health</div>
+                        <div class="case-type">Corporate Law</div>
+                    </div>
+                    <span class="badge badge-progress">In Progress</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 72%"></div>
+                    </div>
+                    <div class="progress-text">72% Complete</div>
+                </div>
+                <div class="case-footer">
+                    <div class="case-date">Filed: Jun 2 2026</div>
+                    <div class="lawyer-info">
+                        <span>Assigned to: James</span>
+                        <div class="lawyer-avatar">J</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-header">
+                    <div>
+                        <div class="case-title">Regulatory Compliance Review — 2026</div>
+                        <div class="case-type">Compliance</div>
+                    </div>
+                    <span class="badge badge-review">In Review</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 45%"></div>
+                    </div>
+                    <div class="progress-text">45% Complete</div>
+                </div>
+                <div class="case-footer">
+                    <div class="case-date">Filed: May 14 2026</div>
+                    <div class="lawyer-info">
+                        <span>Assigned to: Priya Shah</span>
+                        <div class="lawyer-avatar">P</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-header">
+                    <div>
+                        <div class="case-title">Vendor Contract Renegotiation</div>
+                        <div class="case-type">Corporate Law</div>
+                    </div>
+                    <span class="badge badge-closed">Closed</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 100%"></div>
+                    </div>
+                    <div class="progress-text">100% Complete</div>
+                </div>
+                <div class="case-footer">
+                    <div class="case-date">Filed: Mar 30 2026</div>
+                    <div class="lawyer-info">
+                        <span>Assigned to: Sarah</span>
+                        <div class="lawyer-avatar">S</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section id="documents" class="section">
+            <div class="page-header header-flex">
+                <h1 class="page-title">My Documents</h1>
+                <button class="btn-primary">Upload Document</button>
+            </div>
+            
+            <div class="card">
+                <div class="doc-item">
+                    <div class="doc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    </div>
+                    <div class="doc-info">
+                        <div class="doc-name">Merger Agreement — Draft v4.pdf</div>
+                        <div class="doc-meta">
+                            <span>Cross-Border Merger</span>
+                            <span>Jul 18 2026</span>
+                            <span>2.4 MB</span>
+                        </div>
+                    </div>
+                    <button class="btn-download">Download</button>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    </div>
+                    <div class="doc-info">
+                        <div class="doc-name">Compliance Audit Summary.pdf</div>
+                        <div class="doc-meta">
+                            <span>Regulatory Compliance Review</span>
+                            <span>Jul 15 2026</span>
+                            <span>1.1 MB</span>
+                        </div>
+                    </div>
+                    <button class="btn-download">Download</button>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    </div>
+                    <div class="doc-info">
+                        <div class="doc-name">Vendor Contract — Signed.pdf</div>
+                        <div class="doc-meta">
+                            <span>Vendor Contract Renegotiation</span>
+                            <span>Jun 30 2026</span>
+                            <span>890 KB</span>
+                        </div>
+                    </div>
+                    <button class="btn-download">Download</button>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    </div>
+                    <div class="doc-info">
+                        <div class="doc-name">Alta Health Financials 2025.xlsx</div>
+                        <div class="doc-meta">
+                            <span>Cross-Border Merger</span>
+                            <span>Jun 12 2026</span>
+                            <span>4.2 MB</span>
+                        </div>
+                    </div>
+                    <button class="btn-download">Download</button>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    </div>
+                    <div class="doc-info">
+                        <div class="doc-name">Initial Consultation Notes.docx</div>
+                        <div class="doc-meta">
+                            <span>Vendor Contract Renegotiation</span>
+                            <span>Mar 31 2026</span>
+                            <span>150 KB</span>
+                        </div>
+                    </div>
+                    <button class="btn-download">Download</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments" class="section">
+            <div class="page-header">
+                <h1 class="page-title">My Appointments</h1>
+            </div>
+            
+            <div class="apt-item">
+                <div class="apt-date">
+                    <div class="apt-month">Jul</div>
+                    <div class="apt-day">24</div>
+                </div>
+                <div class="apt-info">
+                    <h3 style="color: var(--text-dark); margin-bottom: 4px;">Merger Review Meeting</h3>
+                    <p style="color: var(--text-main); font-size: 14px; margin-bottom: 8px;">2026, 10:00 AM</p>
+                    <p style="color: var(--text-main); font-size: 14px;">With: <strong>James</strong></p>
+                </div>
+            </div>
+            
+            <div class="apt-item">
+                <div class="apt-date">
+                    <div class="apt-month">Jul</div>
+                    <div class="apt-day">28</div>
+                </div>
+                <div class="apt-info">
+                    <h3 style="color: var(--text-dark); margin-bottom: 4px;">Compliance Follow-up</h3>
+                    <p style="color: var(--text-main); font-size: 14px; margin-bottom: 8px;">2026, 2:00 PM</p>
+                    <p style="color: var(--text-main); font-size: 14px;">With: <strong>Priya Shah</strong></p>
+                </div>
+            </div>
+
+            <div class="apt-item">
+                <div class="apt-date">
+                    <div class="apt-month">Aug</div>
+                    <div class="apt-day">05</div>
+                </div>
+                <div class="apt-info">
+                    <h3 style="color: var(--text-dark); margin-bottom: 4px;">Quarterly Review</h3>
+                    <p style="color: var(--text-main); font-size: 14px; margin-bottom: 8px;">2026, 11:00 AM</p>
+                    <p style="color: var(--text-main); font-size: 14px;">With: <strong>Sarah</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Billing Section -->
+        <section id="billing" class="section">
+            <div class="page-header">
+                <h1 class="page-title">Billing & Payments</h1>
+            </div>
+            
+            <div class="card" style="background: var(--dark); color: white;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <p style="color: #9CA3AF; margin-bottom: 8px;">Outstanding Balance</p>
+                        <h2 style="font-size: 32px; margin-bottom: 8px;">$12,400</h2>
+                        <p style="font-size: 14px; color: #D1D5DB;">Due Aug 1, 2026 • Invoice #MV-2026-0714</p>
+                    </div>
+                    <div>
+                        <button class="btn-primary" style="margin-right: 12px;">Pay Now</button>
+                        <button class="btn-download" style="background: transparent; border-color: rgba(255,255,255,0.2); color: white;">View Invoice</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title">Payment History</h3>
+            <div class="card" style="padding: 0; overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid var(--border-color); background: #F9FAFB;">
+                            <th style="padding: 16px; color: var(--text-main); font-weight: 500; font-size: 14px;">Date</th>
+                            <th style="padding: 16px; color: var(--text-main); font-weight: 500; font-size: 14px;">Description</th>
+                            <th style="padding: 16px; color: var(--text-main); font-weight: 500; font-size: 14px;">Amount</th>
+                            <th style="padding: 16px; color: var(--text-main); font-weight: 500; font-size: 14px;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 16px; font-size: 14px;">Jun 1, 2026</td>
+                            <td style="padding: 16px; font-size: 14px;">Retainer Fee - Merger</td>
+                            <td style="padding: 16px; font-size: 14px;">$15,000</td>
+                            <td style="padding: 16px;"><span class="badge badge-closed">Paid</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 16px; font-size: 14px;">Apr 15, 2026</td>
+                            <td style="padding: 16px; font-size: 14px;">Compliance Audit Part 1</td>
+                            <td style="padding: 16px; font-size: 14px;">$4,500</td>
+                            <td style="padding: 16px;"><span class="badge badge-closed">Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 16px; font-size: 14px;">Mar 1, 2026</td>
+                            <td style="padding: 16px; font-size: 14px;">Consultation Services</td>
+                            <td style="padding: 16px; font-size: 14px;">$1,200</td>
+                            <td style="padding: 16px;"><span class="badge badge-closed">Paid</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section id="messages" class="section">
+            <div class="page-header">
+                <h1 class="page-title">Messages</h1>
+            </div>
+            
+            <div class="card" style="padding: 0;">
+                <div class="msg-item msg-unread">
+                    <div class="lawyer-avatar" style="width: 48px; height: 48px; font-size: 18px;">J</div>
+                    <div style="flex: 1;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <strong style="color: var(--text-dark);">James</strong>
+                            <span style="font-size: 12px; color: var(--text-main);">2h ago</span>
+                        </div>
+                        <p style="color: var(--text-dark); font-size: 14px;">The revised merger draft is ready for your review...</p>
+                    </div>
+                    <div class="msg-dot"></div>
+                </div>
+
+                <div class="msg-item msg-unread">
+                    <div class="lawyer-avatar" style="width: 48px; height: 48px; font-size: 18px;">P</div>
+                    <div style="flex: 1;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <strong style="color: var(--text-dark);">Priya Shah</strong>
+                            <span style="font-size: 12px; color: var(--text-main);">1d ago</span>
+                        </div>
+                        <p style="color: var(--text-dark); font-size: 14px;">Compliance audit findings look clean, sending summary...</p>
+                    </div>
+                    <div class="msg-dot"></div>
+                </div>
+
+                <div class="msg-item">
+                    <div class="lawyer-avatar" style="width: 48px; height: 48px; font-size: 18px;">S</div>
+                    <div style="flex: 1;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <strong style="color: var(--text-dark);">Sarah</strong>
+                            <span style="font-size: 12px; color: var(--text-main);">4d ago</span>
+                        </div>
+                        <p style="color: var(--text-main); font-size: 14px;">Vendor contract has been fully executed. 🎉</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <div class="page-header">
+                <h1 class="page-title">My Profile</h1>
+            </div>
+            
+            <div class="grid-layout">
+                <div>
+                    <div class="card">
+                        <h3 class="section-title">Personal Information</h3>
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-input" value="Alex Carter">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" value="alex.carter@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" value="+1 (555) 123-4567">
+                        </div>
+                        <button class="btn-primary">Save Changes</button>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="section-title">Change Password</h3>
+                        <div class="form-group">
+                            <label class="form-label">Current Password</label>
+                            <input type="password" class="form-input" placeholder="••••••••">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">New Password</label>
+                            <input type="password" class="form-input" placeholder="••••••••">
+                        </div>
+                        <button class="btn-primary">Update Password</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="card">
+                        <h3 class="section-title">Notification Preferences</h3>
+                        <div class="toggle-switch">
+                            <div>
+                                <strong style="display: block; font-size: 14px; color: var(--text-dark);">Email Notifications</strong>
+                                <span style="font-size: 12px; color: var(--text-main);">Receive updates via email</span>
+                            </div>
+                            <input type="checkbox" checked style="width: 18px; height: 18px;">
+                        </div>
+                        <div class="toggle-switch">
+                            <div>
+                                <strong style="display: block; font-size: 14px; color: var(--text-dark);">SMS Alerts</strong>
+                                <span style="font-size: 12px; color: var(--text-main);">Get text messages for meetings</span>
+                            </div>
+                            <input type="checkbox" checked style="width: 18px; height: 18px;">
+                        </div>
+                        <div class="toggle-switch" style="border: none;">
+                            <div>
+                                <strong style="display: block; font-size: 14px; color: var(--text-dark);">Marketing Emails</strong>
+                                <span style="font-size: 12px; color: var(--text-main);">Occasional news and updates</span>
+                            </div>
+                            <input type="checkbox" style="width: 18px; height: 18px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </div><!-- /.main-content-inner -->
+    </main>
+
+    <script>
+        function switchTab(tabId, element) {
+            // Update nav items
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+
+            // Update sections
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+
+            // On mobile, close sidebar after clicking
+            if (window.innerWidth <= 768) {
+                document.getElementById('sidebar').classList.remove('show');
+            }
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('show');
+        }
+
+        // Also bind the top-header mobile toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileToggle2 = document.getElementById('mobileToggle2');
+            if (mobileToggle2) {
+                mobileToggle2.addEventListener('click', toggleSidebar);
+            }
+            
+            // Personalize Dashboard with LocalStorage Data
+            const userEmail = localStorage.getItem('userEmail');
+            const userRole = localStorage.getItem('userRole');
+
+            if (userEmail) {
+                // Extract name from email (e.g., alex.carter@example.com -> Alex Carter)
+                let namePart = userEmail.split('@')[0];
+                namePart = namePart.replace(/[^a-zA-Z0-9]/g, ' ');
+                namePart = namePart.replace(/\b\w/g, char => char.toUpperCase());
+                
+                // Set Name
+                document.querySelectorAll('.header-user-name, .user-name').forEach(el => {
+                    el.textContent = namePart || userEmail;
+                });
+                
+                // Set Welcome message
+                const pageTitle = document.querySelector('.page-title');
+                if(pageTitle && pageTitle.textContent.includes('Welcome back')) {
+                    pageTitle.textContent = 'Welcome back, ' + (namePart.split(' ')[0] || userEmail);
+                }
+
+                // Set Avatar (First 1-2 letters)
+                const words = namePart.split(' ');
+                let initials = '';
+                if(words.length > 1) {
+                    initials = (words[0][0] + words[1][0]).toUpperCase();
+                } else if(namePart) {
+                    initials = namePart.substring(0, 2).toUpperCase();
+                }
+                if(initials) {
+                    document.querySelectorAll('.header-avatar, .avatar').forEach(el => {
+                        el.textContent = initials;
+                    });
+                }
+            }
+
+            if (userRole) {
+                // Set Role
+                const displayRole = userRole.charAt(0).toUpperCase() + userRole.slice(1);
+                document.querySelectorAll('.header-user-role, .user-info .role').forEach(el => {
+                    el.textContent = displayRole;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

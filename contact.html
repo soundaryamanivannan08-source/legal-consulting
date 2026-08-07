@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-hero {
+            padding: clamp(60px, 10vw, 120px) 0 clamp(40px, 5vw, 80px);
+            text-align: center;
+            background-image: linear-gradient(rgba(17, 24, 39, 0.55), rgba(17, 24, 39, 0.55)), url('Assest/contact_hero_bg.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        .contact-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .contact-hero p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: -40px auto 60px;
+            max-width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .info-card {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: #EFF6FF;
+            color: #2563EB;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            transition: all 0.4s ease;
+        }
+        .info-card:hover .info-icon {
+            background: #2563EB;
+            color: #FFFFFF;
+            transform: scale(1.1);
+        }
+        .info-card h3 {
+            font-size: 1.1rem;
+            color: #0F172A;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .info-card p {
+            color: #64748B;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        .contact-main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        .contact-form-container {
+            flex: 1;
+            min-width: 300px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+        .contact-form-container h2 {
+            font-size: 1.5rem;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+        .contact-form-container p {
+            color: #64748B;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #0F172A;
+            outline: none;
+            transition: border-color 0.2s;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #2563EB;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .contact-map-container {
+            flex: 1;
+            min-width: 100%; max-width: 100%;
+        }
+        .location-pills {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .location-pill {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid #E2E8F0;
+            background: #FFFFFF;
+            color: #64748B;
+            transition: all 0.2s;
+        }
+        .location-pill.active {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+        .map-card {
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #FFFFFF;
+            position: relative;
+        }
+        .map-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        .map-info {
+            padding: 20px;
+            border-top: 1px solid #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .map-info-text h4 {
+            font-size: 1rem;
+            color: #0F172A;
+            margin: 0 0 4px 0;
+        }
+        .map-info-text p {
+            font-size: 0.85rem;
+            color: #64748B;
+            margin: 0;
+        }
+        .map-marker-popup {
+            position: absolute;
+            bottom: 100px;
+            left: 20px;
+            background: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+        }
+        .map-marker-popup .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #0F172A;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .office-hours-section {
+            background: #F8FAFC;
+            padding: clamp(40px, 8vw, 80px) 0;
+        }
+        .hours-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hours-header {
+            margin-bottom: 40px;
+        }
+        .hours-header h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+            color: #0F172A;
+            margin: 15px 0;
+            font-family: 'Playfair Display', serif;
+        }
+        .hours-header p {
+            color: #64748B;
+            font-size: 1.05rem;
+            max-width: 500px;
+        }
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .hours-table tr {
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .hours-table td {
+            padding: 20px 0;
+            font-size: 0.95rem;
+        }
+        .hours-day {
+            color: #0F172A;
+            font-weight: 500;
+        }
+        .hours-time {
+            text-align: right;
+            color: #64748B;
+        }
+        .hours-time.open {
+            color: #10B981;
+            font-weight: 600;
+        }
+
+        .cta-banner {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 80px auto;
+            max-width: 1000px;
+        }
+        .cta-banner h2 {
+            color: white;
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+            margin-bottom: 15px;
+        }
+        .cta-banner p {
+            color: #94A3B8;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+    </style>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" style="height: 44px; width: auto;">
+        </a>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="about.html">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html" class="active">Contact Us</a>
+            <div class="nav-actions-mobile">
+                <a href="login.html" class="btn btn-outline btn-sm btn-full">Login</a>
+                
+            </div>
+        </div>
+
+        <div class="nav-actions">
+            <a href="" class="btn btn-outline btn-sm">Login</a>
+            </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            ☰
+        </button>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Our experts are ready to assist you. Reach out today for a confidential consultation and discover how we can help your business thrive.</p>
+        </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="info-cards container">
+        <div class="info-card">
+            <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <h3>Phone</h3>
+            <p>+1 (555) 000-0000</p>
+        </div>
+        <div class="info-card">
+            <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <h3>Email</h3>
+            <p>hello@stackly.com</p>
+        </div>
+        <div class="info-card">
+            <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <h3>Headquarters</h3>
+            <p>One Battery Park Plaza, NY</p>
+        </div>
+    </section>
+
+    <!-- Main Content: Form & Map -->
+    <section class="contact-main container">
+        <div class="contact-form-container">
+            <h2>Send us a message</h2>
+            <form>
+                <div style="margin-bottom: 20px;">
+                    <label style="display:block; margin-bottom: 5px; color:#64748B;">Full Name</label>
+                    <input type="text" style="width:100%; padding: 12px; border: 1px solid #E2E8F0; border-radius: 8px;" placeholder="John Doe">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display:block; margin-bottom: 5px; color:#64748B;">Email Address</label>
+                    <input type="email" style="width:100%; padding: 12px; border: 1px solid #E2E8F0; border-radius: 8px;" placeholder="john@example.com">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display:block; margin-bottom: 5px; color:#64748B;">Message</label>
+                    <textarea style="width:100%; padding: 12px; border: 1px solid #E2E8F0; border-radius: 8px;" rows="5" placeholder="How can we help you?"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+            <div class="location-pills">
+                <div class="location-pill active">Salem</div>
+            </div>
+            <div class="map-card" style="flex: 1; display: flex; flex-direction: column;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.748110595995!2d78.16522501066779!3d11.685002599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin" width="100%" style="flex: 1; min-height: 250px; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-info">
+                    <div class="map-info-text">
+                        <h4>Stackly Legal Consulting</h4>
+                        <p>Stackly, Salem, Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 1. Global Offices Grid -->
+    <section class="global-offices" style="padding: clamp(40px, 8vw, 80px) 0; background: #F8FAFC;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <div class="tag-blue">Global Presence</div>
+                <h2 style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); color: #0F172A; margin-top: 15px;">Our Offices Worldwide</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div class="info-card">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 15px;">New York (Headquarters)</h3>
+                    <p style="margin-bottom: 10px;"><strong>Address:</strong> One Battery Park Plaza, NY 10004</p>
+                    <p style="margin-bottom: 10px;"><strong>Phone:</strong> +1 (212) 555-0100</p>
+                    <p><strong>Email:</strong> ny@stackly.com</p>
+                </div>
+                <div class="info-card">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 15px;">London</h3>
+                    <p style="margin-bottom: 10px;"><strong>Address:</strong> 30 St Mary Axe, London EC3A 8EP</p>
+                    <p style="margin-bottom: 10px;"><strong>Phone:</strong> +44 20 7946 0958</p>
+                    <p><strong>Email:</strong> london@stackly.com</p>
+                </div>
+                <div class="info-card">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 15px;">Singapore</h3>
+                    <p style="margin-bottom: 10px;"><strong>Address:</strong> 8 Marina Boulevard, Singapore 018981</p>
+                    <p style="margin-bottom: 10px;"><strong>Phone:</strong> +65 6555 0199</p>
+                    <p><strong>Email:</strong> sg@stackly.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Department Contacts -->
+    <section class="department-contacts" style="padding: clamp(40px, 8vw, 80px) 0; background: white;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 40px; text-align: center;">
+                <h2 style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); color: #0F172A;">Direct Department Access</h2>
+                <p style="color: #64748B; max-width: 600px; margin: 15px auto 0;">Reach out directly to the practice area that suits your needs.</p>
+            </div>
+            <style>
+                .dept-card {
+                    background: #FFFFFF;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 16px;
+                    padding: 30px;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                    text-align: left;
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+                }
+                .dept-card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+                    border-color: var(--primary);
+                }
+                .dept-icon-wrapper {
+                    width: 54px;
+                    height: 54px;
+                    min-width: 54px;
+                    background: #F8FAFC;
+                    color: var(--primary);
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.4s ease;
+                }
+                .dept-card:hover .dept-icon-wrapper {
+                    background: var(--primary);
+                    color: #FFFFFF;
+                    transform: scale(1.1);
+                }
+            </style>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div class="dept-card">
+                    <div class="dept-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.15rem; color: #0F172A; margin: 0 0 5px 0; font-weight: 700;">Corporate Law</h4>
+                        <a href="mailto:corporate@stackly.com" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.95rem;">corporate@stackly.com</a>
+                    </div>
+                </div>
+                <div class="dept-card">
+                    <div class="dept-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.15rem; color: #0F172A; margin: 0 0 5px 0; font-weight: 700;">M&A Advisory</h4>
+                        <a href="mailto:mna@stackly.com" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.95rem;">mna@stackly.com</a>
+                    </div>
+                </div>
+                <div class="dept-card">
+                    <div class="dept-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.15rem; color: #0F172A; margin: 0 0 5px 0; font-weight: 700;">Tax Advisory</h4>
+                        <a href="mailto:tax@stackly.com" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.95rem;">tax@stackly.com</a>
+                    </div>
+                </div>
+                <div class="dept-card">
+                    <div class="dept-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.15rem; color: #0F172A; margin: 0 0 5px 0; font-weight: 700;">Compliance</h4>
+                        <a href="mailto:compliance@stackly.com" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.95rem;">compliance@stackly.com</a>
+                    </div>
+                </div>
+                <div class="dept-card">
+                    <div class="dept-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.15rem; color: #0F172A; margin: 0 0 5px 0; font-weight: 700;">Intellectual Property</h4>
+                        <a href="mailto:ip@stackly.com" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.95rem;">ip@stackly.com</a>
+                    </div>
+                </div>
+                <div class="dept-card">
+                    <div class="dept-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.15rem; color: #0F172A; margin: 0 0 5px 0; font-weight: 700;">Litigation</h4>
+                        <a href="mailto:litigation@stackly.com" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.95rem;">litigation@stackly.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Business Hours -->
+    <section class="office-hours-section">
+        <div class="hours-container container">
+            <div class="hours-header text-center">
+                <h2>Business Hours</h2>
+                <p style="margin: 0 auto;">Our dedicated team operates across time zones to ensure you always have the support you need.</p>
+            </div>
+            <div style="background: white; border: 1px solid #E2E8F0; border-radius: 16px; padding: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <table class="hours-table">
+                    <tr>
+                        <td class="hours-day">Monday - Friday</td>
+                        <td class="hours-time open">8:00 AM - 6:00 PM (EST)</td>
+                    </tr>
+                    <tr>
+                        <td class="hours-day">Saturday</td>
+                        <td class="hours-time">10:00 AM - 2:00 PM (EST)</td>
+                    </tr>
+                    <tr style="border-bottom: none;">
+                        <td class="hours-day">Sunday</td>
+                        <td class="hours-time">Closed</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Consultation Process -->
+    <section class="consultation-process" style="padding: clamp(40px, 8vw, 80px) 0; background: white;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 50px;">
+                <div class="tag-blue">What to Expect</div>
+                <h2 style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); color: #0F172A; margin-top: 15px;">Your Journey With Us</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px;">1</div>
+                    <h3 style="font-size: 1.25rem; color: #0F172A; margin-bottom: 15px;">Initial Review</h3>
+                    <p style="color: #64748B;">Submit your details. We review your requirements and assign the right specialist.</p>
+                </div>
+                <div style="text-align: center; padding: 20px;">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px;">2</div>
+                    <h3 style="font-size: 1.25rem; color: #0F172A; margin-bottom: 15px;">Strategy Session</h3>
+                    <p style="color: #64748B;">A deep dive consultation to outline potential legal and consulting avenues.</p>
+                </div>
+                <div style="text-align: center; padding: 20px;">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px;">3</div>
+                    <h3 style="font-size: 1.25rem; color: #0F172A; margin-bottom: 15px;">Action Plan</h3>
+                    <p style="color: #64748B;">We draft a comprehensive roadmap tailored specifically to your objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contact FAQ -->
+    <section class="contact-faq cs-faq" style="padding: clamp(40px, 8vw, 80px) 0; background: #F8FAFC;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <h2 style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); color: #0F172A;">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What should I bring to my first consultation? <span class="icon">+</span></div>
+                    <div class="faq-answer"><p>Please bring any relevant legal documents, contracts, or business records pertaining to your case. A brief summary of your goals is also helpful.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Are initial consultations free? <span class="icon">+</span></div>
+                    <div class="faq-answer"><p>We offer a complimentary 30-minute initial discovery call. Detailed strategy sessions are billed at our standard advisory rates.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How quickly will someone get back to me? <span class="icon">+</span></div>
+                    <div class="faq-answer"><p>Our team strives to respond to all inquiries within 24 business hours. Urgent matters should be directed to our phone line.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Final CTA Banner -->
+    <section class="cta-banner-wrapper container">
+        <div class="cta-banner">
+            <h2>Ready to protect and grow your business?</h2>
+            <p>Schedule a confidential consultation with our industry experts today.</p>
+            <a href="#" class="btn btn-primary" style="background: white; color: var(--primary);">Book Your Consultation</a>
+        </div>
+    </section>
+
+
+<footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo text-white">
+            <img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" style="height: 44px; width: auto;">
+        </a>
+                <p>Professional consulting services tailored to modern enterprises.</p>
+                <div class="social-links">
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Services</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h4>Practice Areas</h4>
+                <a href="#">M&A Advisory</a>
+                <a href="#">Risk Strategy</a>
+                <a href="#">Compliance</a>
+                <a href="#">Legal Tech</a>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <a href="#">hello@stackly.com</a>
+                <a href="#">+1 (555) 000-0000</a>
+                <a href="#">123 Business Blvd, NY 10001</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Inc. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        // Inject Mobile Header
+        if (!document.getElementById('mobileHeader')) {
+            const mobileHeader = document.createElement('div');
+            mobileHeader.id = 'mobileHeader';
+            mobileHeader.className = 'mobile-menu-header';
+                        mobileHeader.innerHTML = '<button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">&times;</button>' + '<img src="Assest/stackly_071_transparent.webp" alt="Stackly Logo" class="mobile-menu-logo">';
+            navLinks.insertBefore(mobileHeader, navLinks.firstChild);
+
+            document.getElementById('mobileCloseBtn').addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+    </script>
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+
+            // Counting Animation
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const prefix = counter.getAttribute('data-prefix') || '';
+                        const suffix = counter.getAttribute('data-suffix') || '';
+                        
+                        let current = +counter.innerText.replace(/[^0-9]/g, '');
+                        if (isNaN(current)) current = 0;
+
+                        const inc = target / speed;
+
+                        if (current < target) {
+                            // Add commas to the number if it's large
+                            const nextValue = Math.ceil(current + inc);
+                            counter.innerText = prefix + nextValue.toLocaleString() + suffix;
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = prefix + target.toLocaleString() + suffix;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const statsSection = document.querySelector('.about-stats');
+            if(statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
+
+</body>
+</html>
