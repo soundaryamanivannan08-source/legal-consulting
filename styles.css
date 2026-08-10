@@ -3453,3 +3453,8 @@ html, body {
         width: 100%;
     }
 }
+
+/* Fix for fixed navbar overlapping hero sections */
+.navbar + * {
+    margin-top: 90px;
+}
